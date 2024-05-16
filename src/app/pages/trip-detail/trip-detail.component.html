@@ -1,0 +1,35 @@
+<div class="card mt-4">
+    <button type="button" class="btn btn-primary w-25" routerLink="../">Back</button>
+    <h4 class="card-header">Trip Detail</h4>
+    <div class="card-body">
+
+        <h5>{{trip.name}}</h5>
+        <h6>{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</h6>
+
+        <div class="card mt-4">
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Amount Paid</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let trip of tripDetails; let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{trip.firstName}} {{trip.middleName}} {{trip.lastName}}</td>
+                            <td>{{trip.paid}}</td>
+                            <td>
+                                <a [routerLink]="['/user-detail', trip.id]">Details</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

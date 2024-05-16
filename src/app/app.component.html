@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/trip" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Trip</a>
+    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+      *ngIf="!user">Login</a>
+    <ng-container *ngIf="user">
+      <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">User</a>
+      <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
+    </ng-container>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div>
+  <router-outlet></router-outlet>
+</div>

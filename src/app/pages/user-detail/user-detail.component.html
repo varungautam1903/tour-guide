@@ -1,0 +1,32 @@
+<div class="card mt-4">
+    <button type="button" class="btn btn-primary w-25" routerLink="../">Back</button>
+    <h4 class="card-header">User Detail</h4>
+    <div class="card-body">
+
+
+        <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>{{user.firstName}} {{user.middleName}} {{user.lastName}}</dd>
+            <dt>Date Of Birth</dt>
+            <dd>{{user.dob}}</dd>
+            <dt>Address</dt>
+            <dd>{{user.address}}</dd>
+            <dt>Telephone</dt>
+            <dd>{{user.tel}}</dd>
+            <dt>Email</dt>
+            <dd>{{user.email}}</dd>
+
+            <h4>Medical Details:</h4>
+            <dt>Medical Policy Number</dt>
+            <dd>{{user.medicalNo}}</dd>
+            <dt>Travel Policy Number</dt>
+            <dd>{{user.travelNo}}</dd>
+
+            <h4>Passport Details:</h4>
+            <dt>Passport Number</dt>
+            <dd>{{user.passportNo}}</dd>
+            <dt>Passport Expiry Number</dt>
+            <dd>{{user.passporyExpiry}}</dd>
+        </dl>
+    </div>
+</div>

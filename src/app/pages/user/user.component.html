@@ -1,0 +1,28 @@
+<div class="card mt-4">
+    <h4 class="card-header">All Users</h4>
+    <div class="card-body table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Telephone</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{user.firstName}} {{user.middleName}} {{user.lastName}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.tel}}</td>
+                    <td>
+                        <a (click)="deleteUser(user.id)" class="btn">Remove</a>
+                        <a [routerLink]="['/user-detail', user.id]">Details</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
