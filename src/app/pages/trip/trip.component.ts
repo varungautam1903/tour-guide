@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class TripComponent {
 
   tripList: any[] = [
-    { id: 'qweq12', name: "Isle of weight", from: '06/05/2024', to: '07/05/2024' },
-    { id: 'qwee23', name: "Japan", from: '02/05/2024', to: '10/05/2024' }
+    { id: 'qweq12', img: "/assets/img/trip1.png", name: "Isle of weight", from: '06/05/2024', to: '07/05/2024' },
+    { id: 'qwee23', img: "/assets/img/trip2.png", name: "Japan", from: '02/05/2024', to: '10/05/2024' }
   ]
 
   constructor() {

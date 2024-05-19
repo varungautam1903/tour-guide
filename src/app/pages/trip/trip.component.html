@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
         <div class="card col-sm d-flex m-2" *ngFor="let trip of tripList; let i = index">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <img [src]="trip.img" class="card-img-top" />
             <div class="card-body">
                 <h5 class="card-title">{{trip.name}}</h5>
                 <p class="card-text">{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</p>
                 <a (click)="deleteTrip(trip.id)" class="btn">Remove</a>
-                <a [routerLink]="['/trip-detail', trip.id]">Details</a>
+                <a [routerLink]="['/trip-detail', trip.id]" class="btn">Details</a>
             </div>
         </div>
     </div>
