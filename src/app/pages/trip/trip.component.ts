@@ -13,7 +13,7 @@ export class TripComponent {
     { id: 'qwee23', img: "/assets/img/trip2.png", name: "Japan", from: '02/05/2024', to: '10/05/2024' }
   ]
 
-  constructor(private service: FireBaseService) {
+  constructor(private fireBaseSvc: FireBaseService) {
     this.getData();
   }
 
@@ -22,7 +22,7 @@ export class TripComponent {
   }
 
   getData() {
-    this.service.getAll('use').subscribe(res => {
+    this.fireBaseSvc.getAll('use').subscribe(res => {
       debugger;
     }, 
     err => {
@@ -36,7 +36,7 @@ export class TripComponent {
       name: "Test",
       phone: "9876543210"
     }
-    this.service.save("uses", data).then(doc => {
+    this.fireBaseSvc.save("uses", data).then(doc => {
       console.log("registration successful");
       debugger;
       console.log(doc);
