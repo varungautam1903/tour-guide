@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
-
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
