@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { constant } from 'src/app/models/constants';
+import { FireBaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -38,17 +40,23 @@ export class UserDetailComponent {
     }
   ]
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private fireBaseSvc: FireBaseService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
-      this.getUser(id);
+      this.getUserDetails(id);
     })
   }
 
-  getUser(id: any) {
-    this.user = this.userList.find((x: any) => x.id == id) || 0;
+  getUserDetails(id: any) {
+    this.fireBaseSvc.getOne(constant.USERS, id).subscribe(res => {
+      this.user = res;
+    }, err => {
+      console.log("User-Detail Error", err);
+    })
+    // this.user = this.userList.find((x: any) => x.id == id) || 0;
+
   }
 }

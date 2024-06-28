@@ -12,15 +12,10 @@ export class TripComponent {
   tripList: any[] = []
 
   constructor(private fireBaseSvc: FireBaseService) {
-    this.getData();
+    this.getTripList();
   }
 
-  deleteTrip(id: any) {
-    this.fireBaseSvc.delete(constant.TRIPS, id);
-    this.tripList = this.tripList.filter(x => x.id != id);
-  }
-
-  getData() {
+  getTripList() {
     this.fireBaseSvc.getAll(constant.TRIPS).subscribe(res => {
       if (res.length > 0) {
         this.tripList = [];
@@ -36,6 +31,11 @@ export class TripComponent {
       err => {
         console.log("error", err);
       })
+  }
+
+  deleteTrip(id: any) {
+    this.fireBaseSvc.delete(constant.TRIPS, id);
+    this.tripList = this.tripList.filter(x => x.id != id);
   }
 
 }

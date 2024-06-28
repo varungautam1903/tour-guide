@@ -1,0 +1,46 @@
+<div class="container mt-2 add-user">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <form>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input [(ngModel)]="user.firstName" type="text" name="firstName" class="form-control" id="firstName"
+                        aria-describedby="nameHelp">
+
+                    <label for="middleName">Middle Name</label>
+                    <input [(ngModel)]="user.middleName" type="text" name="middleName" class="form-control"
+                        id="middleName">
+
+                    <label for="lastName">Last Name</label>
+                    <input [(ngModel)]="user.lastName" type="text" name="lastName" class="form-control" id="lastName">
+
+                    <label for="dob">Date Of Birth</label>
+                    <input [(ngModel)]="user.dob" type="date" name="dob" class="form-control" id="dob">
+
+                    <label for="tel">Telephone</label>
+                    <input [(ngModel)]="user.tel" type="tel" name="tel" class="form-control" id="tel">
+
+                    <label for="address">Address</label>
+                    <input [(ngModel)]="user.address" type="text" name="address" class="form-control" id="address">
+
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="user.email" type="email" name="email" class="form-control" id="email">
+
+                    <label for="travelNo">Travel Number</label>
+                    <input [(ngModel)]="user.travelNo" type="text" name="travelNo" class="form-control" id="travelNo">
+
+                    <label for="medicalNo">Medical Number</label>
+                    <input [(ngModel)]="user.medicalNo" type="text" name="medicalNo" class="form-control" id="medicalNo">
+
+                    <label for="passportNo">Passport Number</label>
+                    <input [(ngModel)]="user.passportNo" type="text" name="passportNo" class="form-control" id="passportNo">
+
+                    <label for="passportExpiry">Passport Expiry</label>
+                    <input [(ngModel)]="user.passportExpiry" type="date" name="passportExpiry" class="form-control" id="passportExpiry">
+
+                </div>
+            </form>
+            <button class="btn btn-primary mt-3" (click)="createUser()">Create Trip</button>
+        </div>
+    </div>
+</div>

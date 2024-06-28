@@ -3,8 +3,7 @@
     <h4 class="card-header">User Detail</h4>
     <div class="card-body">
 
-
-        <dl class="dl-horizontal">
+        <dl class="dl-horizontal" *ngIf="user">
             <dt>Name</dt>
             <dd>{{user.firstName}} {{user.middleName}} {{user.lastName}}</dd>
             <dt>Date Of Birth</dt>
@@ -26,7 +25,7 @@
             <dt>Passport Number</dt>
             <dd>{{user.passportNo}}</dd>
             <dt>Passport Expiry Number</dt>
-            <dd>{{user.passporyExpiry}}</dd>
+            <dd>{{user.passportExpiry}}</dd>
         </dl>
     </div>
 </div>

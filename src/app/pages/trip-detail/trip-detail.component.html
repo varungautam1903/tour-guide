@@ -2,11 +2,28 @@
     <button type="button" class="btn btn-primary w-25" routerLink="../">Back</button>
     <h4 class="card-header">Trip Detail</h4>
     <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()" class="my-3">
+            <div class="form-group">
+                <label for="name">Add User:</label>
+                <select formControlName="userId" class="form-control">
+                    <option *ngFor="let user of userList" [value]="user.id">{{user.firstName}} {{user.lastName}}
+                    </option>
+                </select>
+
+                <label for="name">Paid:</label>
+                <select formControlName="paid" class="form-control">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary my-2" type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
 
         <h5>{{trip.name}}</h5>
         <h6>{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</h6>
 
-        <div class="card mt-4">
+        <!-- <div class="card mt-4">
             <div class="card-body table-responsive">
                 <table class="table">
                     <thead>
@@ -29,7 +46,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
