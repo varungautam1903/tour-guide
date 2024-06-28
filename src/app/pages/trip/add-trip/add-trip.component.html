@@ -5,18 +5,18 @@
                 <div class="form-group">
                     <label for="name">Trip Name</label>
                     <input [(ngModel)]="trip.name" type="text" name="name" class="form-control" id="name"
-                        aria-describedby="nameHelp" placeholder="Enter your Trip Name">
+                        aria-describedby="nameHelp" placeholder="Enter Trip Name">
 
                     <label for="from">From Date</label>
                     <input [(ngModel)]="trip.from" type="date" name="from" class="form-control" id="from"
-                        aria-describedby="emailHelp" placeholder="Enter your From Date">
+                        aria-describedby="emailHelp" placeholder="Enter From Date">
 
                     <label for="to">To Date</label>
                     <input [(ngModel)]="trip.to" type="date" name="to" class="form-control" id="from"
-                        aria-describedby="emailHelp" placeholder="Enter your To Date">
+                        aria-describedby="emailHelp" placeholder="Enter To Date">
                 </div>
             </form>
-            <button class="btn btn-primary mt-3" (click)="createTrip()">Create contact</button>
+            <button class="btn btn-primary mt-3" (click)="createTrip()">Create Trip</button>
         </div>
     </div>
 </div>

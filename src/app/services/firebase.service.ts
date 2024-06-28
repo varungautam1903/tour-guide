@@ -14,7 +14,7 @@ export class FireBaseService {
   }
 
   getAll(doc: string) {
-    return this.afs.collection(doc).valueChanges()
+    return this.afs.collection(doc).snapshotChanges()
   }
 
   getOne(doc:string, id:string){

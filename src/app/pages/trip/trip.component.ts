@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { constant } from 'src/app/models/constants';
 import { FireBaseService } from 'src/app/services/firebase.service';
 
 @Component({
@@ -8,38 +9,33 @@ import { FireBaseService } from 'src/app/services/firebase.service';
 })
 export class TripComponent {
 
-  tripList: any[] = [
-    { id: 'qweq12', img: "/assets/img/trip1.png", name: "Isle of weight", from: '06/05/2024', to: '07/05/2024' },
-    { id: 'qwee23', img: "/assets/img/trip2.png", name: "Japan", from: '02/05/2024', to: '10/05/2024' }
-  ]
+  tripList: any[] = []
 
   constructor(private fireBaseSvc: FireBaseService) {
     this.getData();
   }
 
   deleteTrip(id: any) {
+    this.fireBaseSvc.delete(constant.TRIPS, id);
     this.tripList = this.tripList.filter(x => x.id != id);
   }
 
   getData() {
-    this.fireBaseSvc.getAll('use').subscribe(res => {
-      debugger;
-    }, 
-    err => {
-     console.log("error", err);
-     debugger;
-    })
+    this.fireBaseSvc.getAll(constant.TRIPS).subscribe(res => {
+      if (res.length > 0) {
+        this.tripList = [];
+        res.forEach((x) => {
+          let item = {
+            id: x.payload.doc.id,
+            ...(x.payload.doc.data() as object)
+          }
+          this.tripList.push(item);
+        })
+      }
+    },
+      err => {
+        console.log("error", err);
+      })
   }
 
-  add() {
-    let data = {
-      name: "Test",
-      phone: "9876543210"
-    }
-    this.fireBaseSvc.save("uses", data).then(doc => {
-      console.log("registration successful");
-      debugger;
-      console.log(doc);
-    }).catch(err => console.log(err))
-  }
 }
