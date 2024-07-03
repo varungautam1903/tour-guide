@@ -5,6 +5,9 @@
 }
 
 .card {
+    border-radius: 10px;
+        background: #f37052;
+        color: #0d555d;
     .card-text {
         margin-bottom: 8px;
     }
@@ -14,6 +17,7 @@
     }
 
     .btn {
-        color: blue;
+        color: #0d555d !important;
     }
+    
 }
