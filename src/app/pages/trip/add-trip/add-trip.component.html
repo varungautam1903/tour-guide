@@ -1,4 +1,4 @@
-<div class="container mt-2 add-trip">
+<div class="container add-trip">
     <div class="row">
         <div class="col-sm-8 offset-sm-2">
             <form>
@@ -16,7 +16,9 @@
                         aria-describedby="emailHelp" placeholder="Enter To Date">
                 </div>
             </form>
-            <button class="btn btn-primary mt-3" (click)="createTrip()">Create Trip</button>
+            <button class="btn btn-primary mt-3 me-2" *ngIf="id == ''" (click)="createTrip()">Create Trip</button>
+            <button class="btn btn-primary mt-3 me-2" *ngIf="id != ''" (click)="updateTrip()">Update Trip</button>
+            <button class="btn btn-primary mt-3" (click)="goToTrip()">Back</button>
         </div>
     </div>
 </div>

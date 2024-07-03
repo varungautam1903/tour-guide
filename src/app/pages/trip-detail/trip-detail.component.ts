@@ -66,7 +66,7 @@ export class TripDetailComponent {
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.tripId = params['id'];
-      this.getTripDetails(this.tripId);
+      // this.getTripDetails(this.tripId);
       this.getUserList();
       this.trip = this.tripList.find((x: any) => x.id == this.tripId) || 0;
     })
@@ -79,14 +79,23 @@ export class TripDetailComponent {
       tripId: this.tripId,
       paid: this.form.value.paid
     }
-    debugger;
+
+    this.addTripDetail(tripDetails);
   }
 
-  getTripDetails(id: string) {
+  addTripDetail(detail: any) {
+    this.fireBaseSvc.save(constant.TRIPDETAILS, detail).then(res => {
+      console.log("Added Successfully");
+    }, err => {
+      console.log("Trip Detail", err);
+    })
+  }
+
+  getTrip(id: string) {
     this.fireBaseSvc.getOne(constant.TRIPS, id).subscribe((res: any) => {
       this.trip = res;
     }, (err: any) => {
-      console.log("Trip Details", err);
+      console.log("Trip", err);
     })
     // let tripUser = this.tripDetailList.filter(x => x.tripId == this.trip.id)
     // this.tripDetails = tripUser.map(x => ({ ...x, ...this.userList.find(y => y.id == x.userId) }))

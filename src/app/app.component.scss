@@ -1,0 +1,21 @@
+.app {
+    background-color: #d2d2b6 !important;
+    min-height: calc(100vh - 100px);
+}
+
+.navbar {
+    background-color: #d2d2b6 !important;
+
+    img {
+        width: 80px;
+    }
+
+    a {
+        margin-top: 18px;
+    }
+
+    a, button {
+        font-size: 18px;
+        color: #175459;
+    }
+}

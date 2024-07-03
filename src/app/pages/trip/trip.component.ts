@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { constant } from 'src/app/models/constants';
 import { FireBaseService } from 'src/app/services/firebase.service';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-trip',
@@ -11,7 +13,7 @@ export class TripComponent {
 
   tripList: any[] = []
 
-  constructor(private fireBaseSvc: FireBaseService) {
+  constructor(private fireBaseSvc: FireBaseService, private tripSvc: TripService, private router: Router) {
     this.getTripList();
   }
 
@@ -36,6 +38,11 @@ export class TripComponent {
   deleteTrip(id: any) {
     this.fireBaseSvc.delete(constant.TRIPS, id);
     this.tripList = this.tripList.filter(x => x.id != id);
+  }
+
+  tripDetailPage(trip: any) {
+    this.tripSvc.trip = trip;
+    this.router.navigate(["/add-trip/", trip.id]);
   }
 
 }

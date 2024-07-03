@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'add-trip',
     component: AddTripComponent
+  },
+  {
+    path: 'add-trip/:id',
+    component: AddTripComponent
   }
 ];
 

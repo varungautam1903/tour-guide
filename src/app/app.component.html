@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
+<nav class="navbar navbar-expand navbar-dark px-3">
   <div class="navbar-nav">
+    <img routerLink="/trip" src="../../../assets/img/joshi.jpg">
     <a class="nav-item nav-link" routerLink="/trip" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}">Trip</a>
     <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
@@ -13,6 +14,6 @@
 </nav>
 
 <!-- main app container -->
-<div>
+<div class="app">
   <router-outlet></router-outlet>
 </div>

@@ -1,13 +1,14 @@
 <div class="container">
-    <a [routerLink]="['/add-trip']">Add New Trip</a>
+    <a [routerLink]="['/add-trip']"><i class="bi bi-plus-circle-fill"></i></a>
+    
     <div class="row">
         <div class="card col-sm d-flex m-2" *ngFor="let trip of tripList; let i = index">
-            <img src="/assets/img/trip1.png" class="card-img-top" />
+            <!-- <img src="/assets/img/trip1.png" class="card-img-top" /> -->
             <div class="card-body">
                 <h5 class="card-title">{{trip.name}}</h5>
                 <p class="card-text">{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</p>
                 <a (click)="deleteTrip(trip.id)" class="btn">Remove</a>
-                <a [routerLink]="['/trip-detail', trip.id]" class="btn">Details</a>
+                <a (click)="tripDetailPage(trip)" class="btn">Details</a>
             </div>
         </div>
     </div>

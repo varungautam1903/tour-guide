@@ -1,4 +1,5 @@
 export const constant = {
     TRIPS: "trips",
-    USERS: "users"
+    USERS: "users",
+    TRIPDETAILS: "tripDetails"
  };
