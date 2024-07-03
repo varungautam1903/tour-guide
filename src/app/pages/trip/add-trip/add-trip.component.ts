@@ -20,7 +20,7 @@ export class AddTripComponent {
     private tripSvc: TripService) {
     this.route.params
       .subscribe((x: any) => {
-        this.id = x.id;
+        this.id = x.id ?? "";
         if (x.id != null) {
           let tripDetail = this.tripSvc.trip;
           if (tripDetail != null) {
@@ -32,7 +32,6 @@ export class AddTripComponent {
           }
         }
       });
-
   }
 
   goToTrip() {
