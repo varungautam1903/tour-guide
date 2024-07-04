@@ -11,8 +11,10 @@ i {
 
 .card {
     border-radius: 10px;
-        background: #f37052;
-        color: #0d555d;
+    background: #f37052;
+    color: #0d555d;
+    box-shadow: 5px 5px;
+
     .card-text {
         margin-bottom: 8px;
     }
@@ -24,5 +26,5 @@ i {
     .btn {
         color: #0d555d !important;
     }
-    
+
 }

@@ -25,7 +25,7 @@ export class AddUserComponent {
     passportExpiry: ''
   };
 
-  constructor(private fireBaseSvc: FireBaseService, private _router: Router) {
+  constructor(private fireBaseSvc: FireBaseService, private router: Router) {
   }
 
   createUser() {
@@ -33,11 +33,15 @@ export class AddUserComponent {
     this.fireBaseSvc.save(constant.USERS, this.user).then(doc => {
       console.log("Added Successfully");
       this.reset();
-      this._router.navigate(['/user'])
+      this.router.navigate(['/user'])
     }).catch(err => {
       console.log(err);
       this.reset();
     })
+  }
+
+  goToUser() {
+    this.router.navigate(['/user'])
   }
 
   reset() {
