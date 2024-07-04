@@ -21,7 +21,7 @@
                             <td>{{user.address}}</td>
                             <td>{{user.tel}}</td>
                             <td>
-                                <a [routerLink]="['add-user', user.id]"><i class="bi bi-pencil-square"></i></a>
+                                <a (click)="userDetailPage(user)"><i class="bi bi-pencil-square"></i></a>
                                 <a [routerLink]="['/user-detail', user.id]"><i class="bi bi-ticket-detailed"></i></a>
                                 <a (click)="deleteUser(user.id)"><i class="bi bi-archive-fill"></i></a>
                             </td>

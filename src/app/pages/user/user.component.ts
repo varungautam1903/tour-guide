@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { constant } from 'src/app/models/constants';
 import { FireBaseService } from 'src/app/services/firebase.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -40,7 +42,9 @@ export class UserComponent {
   //   }
   // ]
 
-  constructor(private fireBaseSvc: FireBaseService) {
+  constructor(private fireBaseSvc: FireBaseService,
+    private router: Router,
+    private userSvc: UserService) {
     this.getUserList();
   }
 
@@ -66,4 +70,10 @@ export class UserComponent {
     this.userList = this.userList.filter(x => x.id != id);
     localStorage.setItem("userList", JSON.stringify(this.userList));
   }
+
+  userDetailPage(user: any) {
+    this.userSvc.user = user;
+    this.router.navigate(["/user/add-user", user.id]);
+  }
+
 }

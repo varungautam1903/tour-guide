@@ -40,7 +40,8 @@
 
                 </div>
             </form>
-            <button class="btn btn-primary mt-3 me-2" (click)="createUser()">Create User</button>
+            <button class="btn btn-primary mt-3 me-2" *ngIf="id == ''" (click)="createUser()">Create User</button>
+            <button class="btn btn-primary mt-3 me-2" *ngIf="id != ''" (click)="updateUser()">Update User</button>
             <button class="btn btn-primary mt-3" (click)="goToUser()">Back</button>
         </div>
     </div>
