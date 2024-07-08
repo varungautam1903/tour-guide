@@ -40,9 +40,14 @@ export class TripComponent {
     this.tripList = this.tripList.filter(x => x.id != id);
   }
 
-  tripDetailPage(trip: any) {
+  tripUpdatePage(trip: any) {
     this.tripSvc.trip = trip;
     this.router.navigate(["/add-trip/", trip.id]);
+  }
+
+  tripDetailPage(trip: any) {
+    this.tripSvc.trip = trip;
+    this.router.navigate(["/trip-detail/", trip.id]);
   }
 
 }

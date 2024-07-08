@@ -13,35 +13,6 @@ export class UserComponent {
 
   userList: any[] = []
 
-  // userList: any[] = [
-  //   {
-  //     "id": "D3DDZXD",
-  //     "firstName": "Chandra",
-  //     "middleName": "",
-  //     "lastName": "Joshi",
-  //     "dob": "01 Jan 2024",
-  //     "tel": "1234567890",
-  //     "address": "Snowshill garden",
-  //     "email": "chander@gmail.com",
-  //     "travelNo": "TE332EE24",
-  //     "medicalNo": "22WERTW443",
-  //     "passporyExpiry": "03/25"
-  //   },
-  //   {
-  //     "id": "D3DDZ3S",
-  //     "firstName": "Pankaj",
-  //     "middleName": "",
-  //     "lastName": "Joshi",
-  //     "dob": "01 Feb 2024",
-  //     "tel": "9876543210",
-  //     "address": "Birmingham",
-  //     "email": "chander@gmail.com",
-  //     "travelNo": "TE332EE24",
-  //     "medicalNo": "22WERTW443",
-  //     "passporyExpiry": "03/25"
-  //   }
-  // ]
-
   constructor(private fireBaseSvc: FireBaseService,
     private router: Router,
     private userSvc: UserService) {

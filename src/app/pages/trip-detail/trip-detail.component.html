@@ -1,52 +1,52 @@
-<div class="card mt-4">
-    <button type="button" class="btn btn-primary w-25" routerLink="../">Back</button>
-    <h4 class="card-header">Trip Detail</h4>
-    <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="submit()" class="my-3">
-            <div class="form-group">
-                <label for="name">Add User:</label>
-                <select formControlName="userId" class="form-control">
-                    <option *ngFor="let user of userList" [value]="user.id">{{user.firstName}} {{user.lastName}}
-                    </option>
-                </select>
+<div class="container">
 
-                <label for="name">Paid:</label>
-                <select formControlName="paid" class="form-control">
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
+    <a *ngIf="dropdownList.length > 0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="bi bi-plus-circle-fill"></i></a>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add User to Trip</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Select User</label>
+                            <select name="name" [(ngModel)]="tripUser.id" class="form-control" id="name"
+                                aria-describedby="nameHelp" placeholder="Enter Name">
+                                <option *ngFor="let user of dropdownList" [ngValue]="user.id">
+                                    {{user.firstName}} {{user.lastName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount Paid</label>
+                            <input [(ngModel)]="tripUser.amountPaid" type="number" name="amount" class="form-control"
+                                id="amount" aria-describedby="amountHelp">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                            (click)="addUserTrip()">Submit</button>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <button class="btn btn-primary my-2" type="submit" [disabled]="!form.valid">Submit</button>
-        </form>
+    <div class="row">
+        <h2>{{trip.name}}</h2>
+        <small>{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</small>
 
-        <h5>{{trip.name}}</h5>
-        <h6>{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</h6>
-
-        <!-- <div class="card mt-4">
-            <div class="card-body table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Amount Paid</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let trip of tripDetails; let i = index">
-                            <th scope="row">{{i + 1}}</th>
-                            <td>{{trip.firstName}} {{trip.middleName}} {{trip.lastName}}</td>
-                            <td>{{trip.paid}}</td>
-                            <td>
-                                <a [routerLink]="['/user-detail', trip.id]">Details</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
-
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center"
+                *ngFor="let user of tripUserList; let  i = index">
+                {{i+1}}. {{user.firstName}} {{user.lastName}}
+                <span class="badge badge-primary badge-pill">£{{user.amountPaid}}</span>
+            </li>
+        </ul>
     </div>
 </div>

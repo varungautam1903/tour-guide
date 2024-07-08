@@ -12,7 +12,7 @@ import { TripService } from 'src/app/services/trip.service';
 export class AddTripComponent {
 
   id: string = '';
-  trip: { name: any, from: any, to: any } = { name: "", from: "", to: "" };
+  trip: { name: any, from: any, to: any, user: any } = { name: "", from: "", to: "", user: [] };
 
   constructor(private fireBaseSvc: FireBaseService,
     private router: Router,
@@ -61,7 +61,7 @@ export class AddTripComponent {
   }
 
   reset() {
-    this.trip = { name: "", from: "", to: "" };
+    this.trip = { name: "", from: "", to: "", user: []};
   }
 
 }
