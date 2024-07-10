@@ -177,6 +177,12 @@ export class TripDetailComponent {
     }
   }
 
+  removeUser(user: any) {
+    let filterUsers = this.trip.user.filter((x: any) => x.id != user.id);
+    this.trip.user = filterUsers;
+    this.updateTrip();
+  }
+
   updateTrip() {
     this.fireBaseSvc.update(constant.TRIPS, this.tripId, this.trip).then(doc => {
       console.log("Updated Successfully");

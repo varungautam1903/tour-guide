@@ -46,6 +46,7 @@
                 *ngFor="let user of tripUserList; let  i = index">
                 {{i+1}}. {{user.firstName}} {{user.lastName}}
                 <span class="badge badge-primary badge-pill">£{{user.amountPaid}}</span>
+                <span class="badge badge-primary badge-pill" (click)="removeUser(user)">Remove</span>
             </li>
         </ul>
     </div>
