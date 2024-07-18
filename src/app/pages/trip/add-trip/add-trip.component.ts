@@ -27,6 +27,7 @@ export class AddTripComponent {
             this.trip.name = tripDetail.name;
             this.trip.from = tripDetail.from;
             this.trip.to = tripDetail.to;
+            this.trip.user = tripDetail.user;
           } else {
             this.goToTrip();
           }
