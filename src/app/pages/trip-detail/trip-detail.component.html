@@ -41,7 +41,7 @@
         <h2>{{trip.name}}</h2>
         <small class="mb-4">{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</small>
 
-        <table class="table">
+        <table class="table" *ngIf="tripUserList.length > 0">
             <thead>
                 <tr>
                     <th scope="col"></th>
