@@ -39,15 +39,25 @@
 
     <div class="row">
         <h2>{{trip.name}}</h2>
-        <small>{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</small>
+        <small class="mb-4">{{trip.from | date: 'mediumDate'}} - {{trip.to | date: 'mediumDate'}}</small>
 
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center"
-                *ngFor="let user of tripUserList; let  i = index">
-                {{i+1}}. {{user.firstName}} {{user.lastName}}
-                <span class="badge badge-primary badge-pill">£{{user.amountPaid}}</span>
-                <span class="badge badge-primary badge-pill" (click)="removeUser(user)">Remove</span>
-            </li>
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of tripUserList; let  i = index">
+                    <th>{{i+1}}</th>
+                    <td>{{user.firstName}} {{user.lastName}}</td>
+                    <td>£{{user.amountPaid}}</td>
+                    <td (click)="removeUser(user)"><i class="bi bi-archive-fill"></i></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
